@@ -1,0 +1,218 @@
+<MyLayout>:
+    # sets the orientation and widgets vertically
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        canvas.before:
+            Color:
+                rgba: 0.08, 0.08, 0.08, 1  # Dark background color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        # TextInput for displaying and inputting calculator values
+        TextInput:
+            id: calc_input
+            text: "0"
+            halign: "right"
+            font_size: 65
+            size_hint: (1, .15)
+            background_color: 0, 0, 0, 0  # Transparent background
+
+        # For arranging buttons in a grid with 4 columns and 6 rows
+        GridLayout:
+            cols: 4
+            rows: 6
+
+            # Square root button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: u"\u221A"  # Unicode for square root symbol
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.square_root()
+
+            # Sine button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "sin"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.sine()
+
+            # Cosine button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "cos"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.cosine()
+
+            # Tangent button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "tan"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.tangent()
+
+            # Percentage Button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "%"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.percent()
+
+            # Clear button    
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "C"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.clear()
+
+            # remove Button
+            Button:
+                id: clear
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: u"\u00AB"  # Unicode for backspace symbol
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.remove()
+
+            # Division button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "/"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.math_sign("/")
+
+            # Number 7 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "7"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(7)
+
+            # Number 8 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "8"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(8)
+
+            # Number 9 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "9"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(9)
+
+            # Multiplication button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "x"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.math_sign("*")
+
+            # Number 4 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "4"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(4)
+
+            # Number 5 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "5"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(5)
+
+            # Number 6 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "6"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(6)
+
+            # Subtraction button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "-"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.math_sign("-")
+
+            # Number 1 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "1"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(1)
+
+            # Number 2 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "2"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(2)
+
+            # Number 3 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "3"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(3)
+
+            # Addition button 
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "+"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.math_sign("+")
+
+            # Positive / negative button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "+/-"
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.pos_neg()
+
+            # Number 0 button
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "0"
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.button_press(0)
+
+            # Decimal button 
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "."
+                background_color: 0.1, 0.1, 0.1, 1  # Darker button background color
+                on_press: root.dot()
+
+            # Equal to button     
+            Button:
+                size_hint: (.2, .16)  # Adjusted size_hint
+                font_size: 32
+                text: "="
+                background_color: 0.2, 0.2, 0.2, 1  # Button background color
+                on_press: root.equals()
